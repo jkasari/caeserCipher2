@@ -3,9 +3,9 @@
 /**
  * This is an array of characters in an order that the cipher shifts through.
  */
-static const int32_t ALPHABET_SIZE = 71;
+static const int32_t ALPHABET_SIZE = 29;
 static const char ALPHABET[ALPHABET_SIZE] =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,' ()!?";
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 
 /**
  * Takes a char and returns the index + 1 of the matching char in |ALPHABET|.
