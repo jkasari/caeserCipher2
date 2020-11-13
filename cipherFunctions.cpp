@@ -3,7 +3,7 @@
 /**
  * This is an array of characters in an order that the cipher shifts through.
  */
-static const int32_t ALPHABET_SIZE = 29;
+static const int32_t ALPHABET_SIZE = 28;
 static const char ALPHABET[ALPHABET_SIZE] =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 
@@ -40,7 +40,7 @@ bool isInAlphabetIndex(const std::string& str) {
  */
 char charShiftRight(const int32_t key, char charToShift) {
   char shiftedChar = indexChar(charToShift) + (key % ALPHABET_SIZE);
-  if (shiftedChar > ALPHABET_SIZE) {
+  if (shiftedChar >= ALPHABET_SIZE) {
     shiftedChar -= (ALPHABET_SIZE - 1);
   }
   return ALPHABET[shiftedChar - 1];

@@ -3,7 +3,7 @@
 #include <ctgmath>
 #include <vector>
 #include <string>
-#include "cypherFunctions.cpp"
+#include "cipherFunctions.cpp"
 using namespace std;
 
 int main(int argc, char* argv[]) {

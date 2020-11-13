@@ -1,17 +1,20 @@
 #include <iostream>
 #include "nuttiest/nuttiest.hpp"
-#include "cypherFunctions.cpp"
+#include "cipherFunctions.cpp"
 
 using namespace std;
 using namespace nuttiest;
 
 int main() {
   section("indexChar") {
-    unit_test("\'A\' returns (1)") {
-      assert_eq(1, indexChar('A'));
+    unit_test("\'C\' returns (3)") {
+      assert_eq(3, indexChar('C'));
     }
     unit_test("\'Z\' returns (26)") {
       assert_eq(26, indexChar('Z'));
+    }
+    unit_test("\' \' returns (27)") {
+      assert_eq(27, indexChar(' '));
     }
   }
   section("isInAlphabetIndex") {
@@ -28,16 +31,16 @@ int main() {
     unit_test("(2) and \'A\' returns \'C\'") {
       assert_eq('C', charShiftRight(2, 'A'));
     }
-    unit_test("(25) and \'E\' returns \'B\'") {
-      assert_eq('B', charShiftRight(25, 'E'));
+    unit_test("(25) and \'C\' returns \'A\'") {
+      assert_eq('A', charShiftRight(25, 'C'));
     }
   }
   section("charShiftLeft") {
     unit_test("(2) and \'C\' returns \'A\'") {
       assert_eq('A', charShiftLeft(2, 'C'));
     }
-    unit_test("(25) and \'B\' returns \'E\'") {
-      assert_eq('E', charShiftLeft(25, 'B'));
+    unit_test("(25) and \'B\' returns \'D\'") {
+      assert_eq('D', charShiftLeft(25, 'B'));
     }
   }
    section("encrypt") {
@@ -46,10 +49,10 @@ int main() {
       encrypt(4, str);
       assert_eq("EFG", str);
     }
-    unit_test("(25) and \"BLACK MAGIC\"  returns \" IZ.HXJZDF.\"") {
+    unit_test("(25) and \"BLACK MAGIC\"  returns \" JZAIYKZEGA\"") {
       string str {"BLACK MAGIC"};
       encrypt(25, str);
-      assert_eq(" IZ.HXJZDF.", str);
+      assert_eq(" JZAIYKZEGA", str);
     }
   }
    section("decrypt") {
@@ -58,8 +61,8 @@ int main() {
       decrypt(4, str);
       assert_eq("ABC", str);
     }
-    unit_test("(25) and \" IZ.HXJZDF.\" returns \"BLACK MAGIC\"") {
-      string str {" IZ.HXJZDF."};
+    unit_test("(25) and \" JZAIYKZEGA\" returns \"BLACK MAGIC\"") {
+      string str {" JZAIYKZEGA"};
       decrypt(25, str);
       assert_eq("BLACK MAGIC", str);
     }
